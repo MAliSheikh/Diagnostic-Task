@@ -12,23 +12,23 @@
   "use strict";
 
   /* ── Config ── */
-  const ACCESS_CODE    = "SKA2026";
+  const ACCESS_CODE = "SKA2026";
   const SUBMIT_ENDPOINT = "/api/submit";
 
   /* ── DOM references ── */
   const screens = {
-    gate:    document.getElementById("screen-gate"),
-    form:    document.getElementById("screen-form"),
+    gate: document.getElementById("screen-gate"),
+    form: document.getElementById("screen-form"),
     success: document.getElementById("screen-success"),
   };
 
   const els = {
-    accessInput:  document.getElementById("access-code"),
-    unlockBtn:    document.getElementById("btn-unlock"),
-    codeError:    document.getElementById("error-code"),
-    diagForm:     document.getElementById("diagnostic-form"),
-    submitBtn:    document.getElementById("btn-submit"),
-    submitError:  document.getElementById("error-submit"),
+    accessInput: document.getElementById("access-code"),
+    unlockBtn: document.getElementById("btn-unlock"),
+    codeError: document.getElementById("error-code"),
+    diagForm: document.getElementById("diagnostic-form"),
+    submitBtn: document.getElementById("btn-submit"),
+    submitError: document.getElementById("error-submit"),
     radioOptions: document.querySelectorAll(".radio-option"),
   };
 
@@ -38,9 +38,12 @@
     screens[name].classList.add("active");
   }
 
-  function setAlert(el, message, visible) {
-    if (message) el.textContent = message;
-    el.classList.toggle("visible", visible);
+  function setAlert(el, message) {
+    el.textContent = message || "";
+  }
+
+  function clearAlert(el) {
+    el.textContent = "";
   }
 
   function setLoading(btn, isLoading) {
@@ -62,11 +65,19 @@
   /* ── Step 1: Access code gate ── */
   function handleUnlock() {
     const entered = els.accessInput.value.trim();
+
+    if (!entered) {
+      setAlert(els.codeError, "Please enter your access code.");
+      els.accessInput.focus();
+      return;
+    }
+
     if (entered === ACCESS_CODE) {
-      setAlert(els.codeError, null, false);
+      clearAlert(els.codeError);
       showScreen("form");
+      document.getElementById("field-name").focus();
     } else {
-      setAlert(els.codeError, "Invalid access code. Please try again.", true);
+      setAlert(els.codeError, "Access code not recognised. Please check and try again.");
       els.accessInput.select();
     }
   }
@@ -81,23 +92,35 @@
   els.diagForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const name         = document.getElementById("field-name").value.trim();
+    const name = document.getElementById("field-name").value.trim();
     const organisation = document.getElementById("field-org").value.trim();
-    const commRadio    = document.querySelector("input[name='communication']:checked");
+    const commRadio = document.querySelector("input[name='communication']:checked");
 
-    if (!commRadio) {
-      setAlert(els.submitError, "Please select a communication option.", true);
+    if (!name) {
+      setAlert(els.submitError, "Please enter your full name.");
+      document.getElementById("field-name").focus();
       return;
     }
 
-    setAlert(els.submitError, null, false);
+    if (!organisation) {
+      setAlert(els.submitError, "Please enter your organisation.");
+      document.getElementById("field-org").focus();
+      return;
+    }
+
+    if (!commRadio) {
+      setAlert(els.submitError, "Please select a communication option.");
+      return;
+    }
+
+    clearAlert(els.submitError);
     setLoading(els.submitBtn, true);
 
     try {
       const response = await fetch(SUBMIT_ENDPOINT, {
-        method:  "POST",
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({
+        body: JSON.stringify({
           name,
           organisation,
           communication: commRadio.value,
@@ -110,7 +133,7 @@
 
     } catch (err) {
       console.error("Submission error:", err);
-      setAlert(els.submitError, "Something went wrong. Please try again.", true);
+      setAlert(els.submitError, "Something went wrong. Please try again.");
       setLoading(els.submitBtn, false);
     }
   });

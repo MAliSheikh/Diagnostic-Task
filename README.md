@@ -1,28 +1,50 @@
-# SKA Thrive by Design — Diagnostic Backend
+# SKA Thrive by Design — Diagnostic
 
-A minimal, access-code-protected diagnostic form with email submission for Sarah Khan Associates.
+Access-code-protected diagnostic form with Gmail email backend for Sarah Khan Associates.
 
----
-
-## Live URL
-> _(add your Vercel URL here after deployment)_
-
-## GitHub
-> _(add your repo link here)_
+**Live URL:** _(add after deployment)_
+**GitHub:** https://github.com/MAliSheikh/Diagnostic-Task
 
 ---
 
 ## Stack & Why
 
-For this MVP, I used **vanilla HTML/CSS/JS** on the frontend and a **Vercel serverless function (Node.js)** on the backend, with **Nodemailer** sending email via Gmail SMTP.
+For this MVP, I used **vanilla HTML/CSS/JS** on the frontend and **Python (Flask)** on the backend, with Python's built-in `smtplib` for Gmail SMTP — no external email library needed.
 
-Reason: I chose this because it can be easily deployed on Vercel. However, at a larger scale, I would choose Python because it is more scalable and has many automation libraries for building complex systems.
+I chose Python because it is clean, readable, and well-suited even for small tasks like this. For larger automation projects, Python scales naturally with its rich ecosystem of libraries. The frontend is plain HTML/CSS/JS to keep it lightweight and dependency-free.
 
 ---
 
-## Local Setup
+## Setup
 
 ### 1. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Configure credentials
+Add your credentials to the `.env` file in the project root:
+```
+EMAIL=your.gmail@gmail.com
+PASSWORD=xxxx xxxx xxxx xxxx
+```
+Get your 16-character App Password at: https://myaccount.google.com/apppasswords
+*(2-Step Verification must be enabled first.)*
+
+---
+
+## Run Locally
 
 ```bash
-npm install
+python api/submit.py
+```
+Opens at **http://localhost:3000**
+
+---
+
+## Deploy to Vercel
+
+```bash
+npx vercel --prod
+```
+Then add `EMAIL` and `PASSWORD` in **Vercel dashboard → Settings → Environment Variables** and redeploy.
