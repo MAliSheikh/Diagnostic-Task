@@ -1,13 +1,3 @@
-/**
- * js/main.js — SKA Diagnostic Frontend Logic
- *
- * Handles:
- *  1. Access-code gate validation
- *  2. Radio option highlight state
- *  3. Form submission via fetch → /api/submit
- *  4. Screen transitions (gate → form → confirmation)
- */
-
 (function () {
   "use strict";
 
