@@ -1,5 +1,4 @@
 {
-  "name": "diagnostic-task",
   "rewrites": [
     { "source": "/api/submit", "destination": "/api/submit.py" }
   ]

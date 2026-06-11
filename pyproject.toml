@@ -1,0 +1,10 @@
+[project]
+name = "diagnostic-task"
+version = "0.1.0"
+dependencies = [
+  "flask>=3.0.0",
+  "python-dotenv>=1.0.0"
+]
+
+[tool.vercel]
+entrypoint = "api.submit:app"
