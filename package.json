@@ -1,0 +1,12 @@
+{
+  "name": "ska-diagnostic",
+  "version": "1.0.0",
+  "description": "SKA Thrive by Design – access-code protected diagnostic form with Gmail email backend",
+  "main": "api/submit.js",
+  "dependencies": {
+    "nodemailer": "^6.9.13"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

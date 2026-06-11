@@ -1,0 +1,323 @@
+/* ─────────────────────────────────────────────
+   SKA Diagnostic Platform — Stylesheet
+   Follows SKA brand: ink / tan / cream palette
+───────────────────────────────────────────── */
+
+:root {
+  --ink:       #2E2B29;
+  --brown:     #5A5550;
+  --tan:       #9E8E7A;
+  --lighttan:  #C4B9A8;
+  --cream:     #D9D0BF;
+  --offwhite:  #F4F0E8;
+  --white:     #FFFFFF;
+  --green:     #2D6A4F;
+  --green-bg:  rgba(45, 106, 79, 0.10);
+  --red:       #9B2335;
+  --red-bg:    rgba(155, 35, 53, 0.08);
+  --border-radius: 3px;
+  --transition: 0.18s ease;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; }
+
+/* ── Base ── */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--offwhite);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── Header ── */
+header {
+  background: var(--ink);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.logo-tagline {
+  font-size: 11px;
+  color: var(--lighttan);
+  font-style: italic;
+  margin-top: 3px;
+}
+
+.header-meta {
+  font-size: 11px;
+  color: var(--tan);
+  text-align: right;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+/* ── Hero band ── */
+.hero {
+  background: var(--ink);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 40px 40px 44px;
+}
+
+.hero-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tan);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 14px;
+  color: var(--cream);
+  font-weight: 300;
+  max-width: 48ch;
+  line-height: 1.7;
+}
+
+/* ── Main / card wrapper ── */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 24px 60px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--cream);
+  border-radius: var(--border-radius);
+  padding: 36px 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 1px 8px rgba(46, 43, 41, 0.06);
+}
+
+/* ── Section label ── */
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--tan);
+  font-weight: 700;
+  border-bottom: 1px solid var(--cream);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* ── Card typography ── */
+.card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--brown);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+/* ── Form ── */
+.field { margin-bottom: 20px; }
+
+.field-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+.field-input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--cream);
+  border-radius: var(--border-radius);
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--offwhite);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.field-input:focus {
+  border-color: var(--tan);
+  box-shadow: 0 0 0 3px rgba(158, 142, 122, 0.13);
+  background: var(--white);
+}
+
+/* ── Radio options ── */
+.radio-group { display: flex; flex-direction: column; gap: 8px; margin-top: 2px; }
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 14px;
+  border: 1px solid var(--cream);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+  font-size: 13px;
+  color: var(--brown);
+  user-select: none;
+}
+
+.radio-option:hover {
+  border-color: var(--tan);
+  background: var(--offwhite);
+}
+
+.radio-option.selected {
+  border-color: var(--green);
+  background: var(--green-bg);
+  color: var(--ink);
+}
+
+.radio-option input[type="radio"] {
+  accent-color: var(--green);
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* ── Divider ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--cream);
+  margin: 20px 0;
+}
+
+/* ── Button ── */
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  background: var(--ink);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--transition);
+  margin-top: 8px;
+}
+
+.btn-primary:hover    { background: #3f3b38; }
+.btn-primary:disabled { background: var(--lighttan); cursor: not-allowed; }
+
+/* ── Inline spinner ── */
+.spinner {
+  display: inline-block;
+  width: 13px; height: 13px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+  vertical-align: middle;
+  margin-right: 7px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Alert messages ── */
+.alert {
+  display: none;
+  font-size: 13px;
+  padding: 11px 14px;
+  border-radius: var(--border-radius);
+  margin-top: 12px;
+  line-height: 1.5;
+}
+.alert.visible  { display: block; }
+.alert-error    { background: var(--red-bg);   color: var(--red);   border-left: 3px solid var(--red); }
+.alert-success  { background: var(--green-bg); color: var(--green); border-left: 3px solid var(--green); }
+
+/* ── Screens ── */
+.screen        { display: none; }
+.screen.active { display: block; }
+
+/* ── Success state ── */
+.success-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--green-bg);
+  margin-bottom: 16px;
+}
+
+.success-mark svg {
+  width: 20px; height: 20px;
+  stroke: var(--green);
+  stroke-width: 2.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.success-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.success-body {
+  font-size: 13px;
+  color: var(--brown);
+  line-height: 1.75;
+}
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid var(--lighttan);
+  padding: 18px 40px;
+  font-size: 11px;
+  color: var(--tan);
+  letter-spacing: 0.01em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  header, .hero, footer { padding-left: 20px; padding-right: 20px; }
+  .card { padding: 26px 20px; }
+  .header-meta { display: none; }
+}

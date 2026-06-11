@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Thrive by Design Diagnostic — Sarah Khan Associates' behavioural screening instrument for corporate teams." />
+  <title>Thrive by Design Diagnostic — Sarah Khan Associates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header>
+    <div>
+      <p class="logo-name">Sarah Khan Associates (Pvt) Ltd.</p>
+      <p class="logo-tagline">Bridging the translation gap</p>
+    </div>
+    <div class="header-meta">
+      <div>Thrive by Design Diagnostic</div>
+      <div>June 2026</div>
+    </div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <div class="hero">
+    <p class="hero-eyebrow">Behavioural Intelligence Platform</p>
+    <h1 class="hero-title">Thrive by Design<br>Diagnostic</h1>
+    <p class="hero-subtitle">
+      A behavioural screening instrument for corporate teams.
+      Enter your access code to begin.
+    </p>
+  </div>
+
+  <!-- ── Main ── -->
+  <main>
+    <div class="card">
+
+      <!-- Screen 1: Access Code Gate -->
+      <div id="screen-gate" class="screen">
+        <p class="section-label">Access Required</p>
+        <h2 class="card-title">Enter your access code</h2>
+        <p class="card-desc">
+          This diagnostic is available by invitation only. Enter the access code
+          provided by your SKA contact to proceed.
+        </p>
+
+        <div class="field">
+          <label class="field-label" for="access-code">Access Code</label>
+          <input
+            id="access-code"
+            class="field-input"
+            type="password"
+            placeholder="Enter code"
+            autocomplete="off"
+            spellcheck="false"
+            aria-describedby="error-code"
+          />
+        </div>
+
+        <button id="btn-unlock" class="btn-primary" data-label="Unlock Diagnostic">
+          Unlock Diagnostic
+        </button>
+
+        <div id="error-code" class="alert alert-error" role="alert"></div>
+      </div>
+
+      <!-- Screen 2: Diagnostic Form -->
+      <div id="screen-form" class="screen">
+        <p class="section-label">Team Communication Diagnostic</p>
+        <h2 class="card-title">Participant Information</h2>
+        <p class="card-desc">Complete all fields and submit. Your responses will be reviewed by the SKA team.</p>
+
+        <hr class="divider" />
+
+        <form id="diagnostic-form" novalidate>
+
+          <div class="field">
+            <label class="field-label" for="field-name">Full Name</label>
+            <input
+              id="field-name"
+              class="field-input"
+              type="text"
+              placeholder="e.g. Ayesha Raza"
+              required
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="field-org">Organisation</label>
+            <input
+              id="field-org"
+              class="field-input"
+              type="text"
+              placeholder="e.g. Habib Bank Limited"
+              required
+              autocomplete="organization"
+            />
+          </div>
+
+          <div class="field">
+            <span class="field-label" id="comms-label">
+              How would you describe communication in your team?
+            </span>
+            <div class="radio-group" role="radiogroup" aria-labelledby="comms-label">
+              <label class="radio-option">
+                <input type="radio" name="communication" value="Always clear" />
+                Always clear
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="communication" value="Usually clear" />
+                Usually clear
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="communication" value="Sometimes unclear" />
+                Sometimes unclear
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="communication" value="Often unclear" />
+                Often unclear
+              </label>
+            </div>
+          </div>
+
+          <button id="btn-submit" class="btn-primary" type="submit" data-label="Submit Response">
+            Submit Response
+          </button>
+
+          <div id="error-submit" class="alert alert-error" role="alert"></div>
+
+        </form>
+      </div>
+
+      <!-- Screen 3: Confirmation -->
+      <div id="screen-success" class="screen">
+        <div class="success-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+        <p class="section-label">Submission Received</p>
+        <h2 class="success-title">Thank you for completing the diagnostic.</h2>
+        <p class="success-body">
+          Your responses have been forwarded to the SKA team.
+          You will be contacted regarding your Behavioural Gap Report in due course.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer>
+    Sarah Khan · Founder &amp; Principal, Sarah Khan Associates (Pvt) Ltd. ·
+    hello@sarahkhan.co · sarahkhan.co
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
