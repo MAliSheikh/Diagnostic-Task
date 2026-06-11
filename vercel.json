@@ -1,8 +1,5 @@
 {
   "name": "diagnostic-task",
-  "functions": {
-    "api/submit.py": { "runtime": "@vercel/python" }
-  },
   "rewrites": [
     { "source": "/api/submit", "destination": "/api/submit.py" }
   ]
