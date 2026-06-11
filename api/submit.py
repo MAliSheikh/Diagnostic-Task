@@ -43,6 +43,7 @@ def submit():
     body = (
         f"New diagnostic submission received via the Thrive by Design platform.\n\n"
         f"\n"
+        f"Form Submission Details:"
         f"Name:          {name}\n"
         f"Organisation:  {organisation}\n"
         f"Communication: {communication}\n"
