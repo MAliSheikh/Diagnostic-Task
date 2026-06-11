@@ -2,7 +2,7 @@
 
 Access-code-protected diagnostic form with Gmail email backend for Sarah Khan Associates.
 
-**Live URL:** _(add after deployment)_
+**Live URL:** https://diagnostic-task.vercel.app/
 **GitHub:** https://github.com/MAliSheikh/Diagnostic-Task
 
 ---
