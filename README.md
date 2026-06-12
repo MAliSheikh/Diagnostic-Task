@@ -36,15 +36,7 @@ Get your 16-character App Password at: https://myaccount.google.com/apppasswords
 ## Run Locally
 
 ```bash
-python api/submit.py
+start.bat
 ```
 Opens at **http://localhost:3000**
 
----
-
-## Deploy to Vercel
-
-```bash
-npx vercel --prod
-```
-Then add `EMAIL` and `PASSWORD` in **Vercel dashboard → Settings → Environment Variables** and redeploy.
