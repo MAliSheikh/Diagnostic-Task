@@ -61,7 +61,7 @@ def submit():
         server = smtplib.SMTP("smtp.gmail.com", 587)
         server.starttls()
         server.login(email, password)
-        server.sendmail(email, "work97464@gmail.com", msg.as_string())
+        server.sendmail(email, "hello@sarahkhan.co", msg.as_string())
         server.quit()
 
         return jsonify({"success": True}), 200
