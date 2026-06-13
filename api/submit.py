@@ -54,7 +54,7 @@ def submit():
     try:
         msg = MIMEMultipart()
         msg["From"]    = f"MUHAMMAD ALI FAROOQ <{email}>"
-        msg["To"]      = "work97464@gmail.com"
+        msg["To"]      = "hello@sarahkhan.co"
         msg["Subject"] = subject
         msg.attach(MIMEText(body, "plain"))
 
